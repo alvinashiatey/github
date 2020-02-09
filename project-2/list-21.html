@@ -23,23 +23,29 @@
             font-size: 3em;
         }
 
-        .link{
-            padding: 1em;
-            background-color: green
-        }
-
-        #display1{ 
-            visibility: hidden;
-        }
-
-        #display1:target {
-            visibility: visible;
-        }
-
         .container {
             padding-top: 2em;
             margin: auto;
             width: 80vw;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link {
+            padding: 1em;
+            background-color: green
+        }
+
+        #display1,
+        #display2,
+        #display3 {
+            display: none;
+        }
+
+        #display1:target,
+        #display2:target,
+        #display3 {
+            display: block;
         }
     </style>
 </head>
@@ -50,6 +56,7 @@
             <div class="link">
                 <a href="#display1">WOMEN</a>
             </div>
+            <hr>
             <p id="display1">
                 MARGARET AMEVOR
                 MAYA ANGELOU
@@ -60,9 +67,13 @@
                 ESSÉ DABLA-ATTIKPO
             </p>
         </div>
-        <hr>
+
         <div class="men">
-            <p>
+            <div class="link">
+                <a href="#display2">MEN</a>
+            </div>
+            <hr>
+            <p id="display2">
                 JABEZ FURRER-MENSAH
                 KWAME NKRUMAH
                 MALCOM X
@@ -84,9 +95,12 @@
                 FREDRICK FIATI JUNIOR
             </p>
         </div>
-        <hr>
         <div class="spaces">
-            <p>
+            <div class="link">
+                <a href="#display3">SPACES</a>
+            </div>
+            <hr>
+            <p id="display3">
                 TEMA
                 UNIVERSITY HALL
                 KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY
