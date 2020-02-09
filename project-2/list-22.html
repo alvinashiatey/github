@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List 22</title>
+    <style>
+        body {
+            width: auto;
+            margin: auto;
+            background: whitesmoke;
+            color: teal;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        p {
+            text-align: center;
+            line-height: 1.2em;
+            letter-spacing: 0.2em;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .space {
+            background-color: yellow;
+            padding: 1.5em;
+        }
+
+        .space:nth-child(even) {
+            z-index: 1;
+            background-color: tomato;
+            transition: ease-in-out 0.5s;
+        }
+
+        .space:nth-child(even):hover {
+            background-color: yellow;
+        }
+
+        .container {
+            width: auto;
+            display: grid;
+            margin: auto;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-rows: 33.34vh;
+        }
+
+        .circle {
+            position: absolute;
+            width: 6em;
+            height: 6em;
+            border-radius: 3em;
+            background-color: black;
+            left: -100%;
+
+        }
+
+        .c1 {
+            top: 10%;
+            animation: moveIn 15s 1s ease-in-out infinite;
+        }
+
+        .c2 {    
+            top: 45%;
+            z-index: 2;
+            animation: moveIn 15s 1.5s ease-in-out infinite;
+        }
+
+        .c3 {
+            top: 80%;
+            animation: moveIn 15s 2s ease-in-out infinite;
+        }
+
+        @keyframes moveIn {
+            0% {left: -50% }
+            100% { left: 200%; }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="circle c1">&nbsp;</div>
+    <div class="circle c2">&nbsp;</div>
+    <div class="circle c3">&nbsp;</div>
+
+    <div class="container">
+        <div class="space">
+            <p id="display1">
+                MARGARET AMEVOR <span>&#149;</span>
+                MAYA ANGELOU <span>&#149;</span>
+                AMA ATA AIDOO <span>&#149;</span>
+                SYLVIA HARRIS<span>&#149;</span>
+                NONTSIKELELO MUTITI<span>&#149;</span>
+                NAA DENSUA DARKU<span>&#149;</span>
+                ESSÉ DABLA-ATTIKPO
+            </p>
+        </div>
+        <div class="space">
+            <p id="display2" style="color: tomato;">
+                JABEZ FURRER-MENSAH<span>&#149;</span>
+                KWAME NKRUMAH<span>&#149;</span>
+                MALCOM X<span>&#149;</span>
+                W.E.B. DU BOIS<span>&#149;</span>
+                MARTIN LUTHER KING<span>&#149;</span>
+                EMMETT MCBAIN<span>&#149;</span>
+                ARCHIE BOSTON<span>&#149;</span>
+                EMORY DOUGLAS<span>&#149;</span>
+                SAKI MAFUNDIKWA<span>&#149;</span>
+                DIÉBÉDO FRANCIS KÉRÉ<span>&#149;</span>
+                IBRAHIM MAHAMA<span>&#149;</span>
+                kąrî’kạchä seid’ou<span>&#149;</span>
+                BENARD AKOI JACKSON<span>&#149;</span>
+                KWASI OHENE AYEH<span>&#149;</span>
+                FRANCIS DZIWORNU<span>&#149;</span>
+                YAW OWUSU<span>&#149;</span>
+                ELOLO BOSOKAH<span>&#149;</span>
+                ALFRED QUARTEY<span>&#149;</span>
+                FREDRICK FIATI JUNIOR
+            </p>
+        </div>
+        <div class="space">
+            <p id="display3">
+                TEMA<span>&#149;</span>
+                UNIVERSITY HALL<span>&#149;</span>
+                KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY<span>&#149;</span>
+                BLAXTARLINES<span>&#149;</span>
+                SCCA TAMALE<span>&#149;</span>
+                KUENYEHIA TRUST FOR CONTEMPORARY GHANAIAN ART<span>&#149;</span>
+                CHIMURENGA
+            </p>
+        </div>
+        <div class="space">
+            <p id="display1" style="color: tomato;">
+                MARGARET AMEVOR<span>&#149;</span>
+                MAYA ANGELOU<span>&#149;</span>
+                AMA ATA AIDOO<span>&#149;</span>
+                SYLVIA HARRIS<span>&#149;</span>
+                NONTSIKELELO MUTITI<span>&#149;</span>
+                NAA DENSUA DARKU<span>&#149;</span>
+                ESSÉ DABLA-ATTIKPO
+            </p>
+        </div>
+        <div class="space">
+            <p id="display2">
+                JABEZ FURRER-MENSAH<span>&#149;</span>
+                KWAME NKRUMAH<span>&#149;</span>
+                MALCOM X<span>&#149;</span>
+                W.E.B. DU BOIS<span>&#149;</span>
+                MARTIN LUTHER KING<span>&#149;</span>
+                EMMETT MCBAIN<span>&#149;</span>
+                ARCHIE BOSTON<span>&#149;</span>
+                EMORY DOUGLAS<span>&#149;</span>
+                SAKI MAFUNDIKWA<span>&#149;</span>
+                DIÉBÉDO FRANCIS KÉRÉ<span>&#149;</span>
+                IBRAHIM MAHAMA<span>&#149;</span>
+                kąrî’kạchä seid’ou<span>&#149;</span>
+                BENARD AKOI JACKSON<span>&#149;</span>
+                KWASI OHENE AYEH<span>&#149;</span>
+                FRANCIS DZIWORNU<span>&#149;</span>
+                YAW OWUSU<span>&#149;</span>
+                ELOLO BOSOKAH<span>&#149;</span>
+                ALFRED QUARTEY<span>&#149;</span>
+                FREDRICK FIATI JUNIOR
+            </p>
+        </div>
+        <div class="space">
+            <p id="display3" style="color: tomato;">
+                TEMA<span>&#149;</span>
+                UNIVERSITY HALL<span>&#149;</span>
+                KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY<span>&#149;</span>
+                BLAXTARLINES<span>&#149;</span>
+                SCCA TAMALE<span>&#149;</span>
+                KUENYEHIA TRUST FOR CONTEMPORARY GHANAIAN ART<span>&#149;</span>
+                CHIMURENGA
+            </p>
+        </div>
+        <div class="space">
+            <p id="display1">
+                MARGARET AMEVOR <span>&#149;</span>
+                MAYA ANGELOU <span>&#149;</span>
+                AMA ATA AIDOO <span>&#149;</span>
+                SYLVIA HARRIS<span>&#149;</span>
+                NONTSIKELELO MUTITI<span>&#149;</span>
+                NAA DENSUA DARKU<span>&#149;</span>
+                ESSÉ DABLA-ATTIKPO
+            </p>
+        </div>
+        <div class="space">
+            <p id="display2" style="color: tomato;">
+                JABEZ FURRER-MENSAH<span>&#149;</span>
+                KWAME NKRUMAH<span>&#149;</span>
+                MALCOM X<span>&#149;</span>
+                W.E.B. DU BOIS<span>&#149;</span>
+                MARTIN LUTHER KING<span>&#149;</span>
+                EMMETT MCBAIN<span>&#149;</span>
+                ARCHIE BOSTON<span>&#149;</span>
+                EMORY DOUGLAS<span>&#149;</span>
+                SAKI MAFUNDIKWA<span>&#149;</span>
+                DIÉBÉDO FRANCIS KÉRÉ<span>&#149;</span>
+                IBRAHIM MAHAMA<span>&#149;</span>
+                kąrî’kạchä seid’ou<span>&#149;</span>
+                BENARD AKOI JACKSON<span>&#149;</span>
+                KWASI OHENE AYEH<span>&#149;</span>
+                FRANCIS DZIWORNU<span>&#149;</span>
+                YAW OWUSU<span>&#149;</span>
+                ELOLO BOSOKAH<span>&#149;</span>
+                ALFRED QUARTEY<span>&#149;</span>
+                FREDRICK FIATI JUNIOR
+            </p>
+        </div>
+        <div class="space">
+            <p id="display3">
+                TEMA<span>&#149;</span>
+                UNIVERSITY HALL<span>&#149;</span>
+                KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY<span>&#149;</span>
+                BLAXTARLINES<span>&#149;</span>
+                SCCA TAMALE<span>&#149;</span>
+                KUENYEHIA TRUST FOR CONTEMPORARY GHANAIAN ART<span>&#149;</span>
+                CHIMURENGA
+            </p>
+        </div>
+
+    </div>
+
+    </div>
+</body>
+
+</html>
