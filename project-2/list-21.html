@@ -7,8 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>List 21</title>
     <style>
+        html{
+            scroll-behavior: smooth;
+        }
+
         body {
-            width: 100vw;
+            width: 100%;
+            margin: auto;
             background: darkblue;
         }
 
@@ -20,7 +25,7 @@
         a {
             font-family: 'Courier New', Courier, monospace;
             color: darkgray;
-            font-size: 3em;
+            font-size: 4em;
         }
 
         .container {
@@ -52,6 +57,21 @@
             color: darkgreen;
         }
 
+        .text{
+            display: inline-block;
+        }
+
+        .text:hover{
+            color:pink;
+            animation: textrt 5s ease-in-out;
+        }
+
+        @keyframes textrt {
+            0%{transform: rotate(0);}
+            50%{transform: rotate(10deg);}
+            100%{transform: rotate(0);;}
+        }
+
     </style>
 </head>
 
@@ -63,13 +83,13 @@
             </div>
             <hr>
             <p id="display1">
-                MARGARET AMEVOR<span class="backslash">&#92;</span>
-                MAYA ANGELOU<span class="backslash">&#92;</span>
-                AMA ATA AIDOO<span class="backslash">&#92;</span>
-                SYLVIA HARRIS<span class="backslash">&#92;</span>
-                NONTSIKELELO MUTITI<span class="backslash">&#92;</span>
-                NAA DENSUA DARKU<span class="backslash">&#92;</span>
-                ESSÉ DABLA-ATTIKPO<span class="backslash">&#92;</span>
+                <span class="text"> MARGARET AMEVOR </span> <span class="backslash">&#92;</span>
+                <span class="text"> MAYA ANGELOU </span> <span class="backslash">&#92;</span>
+                <span class="text"> AMA ATA AIDOO </span> <span class="backslash">&#92;</span>
+                <span class="text"> SYLVIA HARRIS </span> <span class="backslash">&#92;</span>
+                <span class="text"> NONTSIKELELO MUTITI </span> <span class="backslash">&#92;</span>
+                <span class="text"> NAA DENSUA DARKU </span> <span class="backslash">&#92;</span>
+                <span class="text"> ESSÉ DABLA-ATTIKPO </span> <span class="backslash">&#92;</span>
             </p>
         </div>
 
