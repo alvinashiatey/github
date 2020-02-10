@@ -9,28 +9,29 @@
     <style>
         body{
             width: 100%;
-            margin: auto;
+            margin: 0 auto;
             font-family: monospace;
-            font-size: 4em;
+            font-size: 4vh;
         }
 
         .container{
-            height: 89.5vh;
+            margin: auto;
+            height: 100%;
             padding: 2em;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-gap: 2em;
-            grid-auto-rows: minmax(20vh, auto) ;
+            grid-auto-rows: minmax(25vh, auto) ;
             grid-column-gap: 2em;
         }
 
         .bckimg{
             width: 100vw;
             height: 100vh;
+            margin: 0;
+            overflow: hidden;
             background: linear-gradient(-45deg, #f1f9f9, #e1f2fb, #5f6caf, #40bfc1);
             background-size: 400% 400%;
             position: relative;
-
             animation: bckslide 40s ease-in-out infinite;
         }
 
@@ -41,15 +42,21 @@
         }
 
         .text{
-            text-align: ;
+            
             color: transparent;
             text-shadow: 0 0 30px #c0ffb3;
+            transition: 1.5s ease-in-out;
+        }
+
+        .text:not(:last-child){
+            width: 20vw;
+            justify-self: center;
         }
 
         .text:hover{
             color: #0f4c75;
             line-height: 1em;
-            transition: 1.5s ease-in-out;
+            
         }
 
         .text:last-child{

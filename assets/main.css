@@ -1,1 +1,29 @@
 /* Put your CSS here! */
+
+body{
+    width: 100%;
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+    color: teal;
+    font-size: 2em;
+}
+
+h3{
+    border: 2px solid teal;
+    padding: 1em;
+}
+
+a{
+    text-decoration: none;
+    color: teal;
+}
+
+li{
+    list-style: none;
+}
+
+.container{
+    width: 90vw;
+    margin: auto;
+    display: grid;
+}
