@@ -7,14 +7,124 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>List 24</title>
     <style>
+        body{
+            width: 100%;
+            margin: auto;
+            font-family: monospace;
+            font-size: 4em;
+        }
+
+        .container{
+            height: 89.5vh;
+            padding: 2em;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2em;
+            grid-auto-rows: minmax(20vh, auto) ;
+            grid-column-gap: 2em;
+        }
+
+        .bckimg{
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(-45deg, #f1f9f9, #e1f2fb, #5f6caf, #40bfc1);
+            background-size: 400% 400%;
+            position: relative;
+
+            animation: bckslide 40s ease-in-out infinite;
+        }
+
+        @keyframes bckslide{
+            0%{background-position: 0 50%;}
+            50%{background-position: 100% 50%;}
+            100%{background-position: 0 50%;}
+        }
+
+        .text{
+            text-align: ;
+            color: transparent;
+            text-shadow: 0 0 30px #c0ffb3;
+        }
+
+        .text:hover{
+            color: #0f4c75;
+            line-height: 1em;
+            transition: 1.5s ease-in-out;
+        }
+
+        .text:last-child{
+            grid-column: span 3;
+        }
 
     </style>
 </head>
 
 <body>
+    <div class="bckimg">
     <div class="container">
-        
+        <div class="text">
+            <p>
+                MARGARET AMEVOR
+                JABEZ FURRER-MENSAH
+                KWAME NKRUMAH
+                MAYA ANGELOU
+                AMA ATA AIDOO
+            </p>
+        </div>
+        <div class="text">
+            <p>
+                MALCOM X
+                W.E.B. DU BOIS
+                MARTIN LUTHER KING
+                EMMETT MCBAIN
+                ARCHIE BOSTON
+            </p>
+        </div>
+        <div class="text">
+            <p>
+                EMORY DOUGLAS
+                SYLVIA HARRIS
+                SAKI MAFUNDIKWA
+                DIÉBÉDO FRANCIS KÉRÉ
+                IBRAHIM MAHAMA
+            </p>
+        </div>
+        <div class="text">
+            <p>
+                kąrî’kạchä seid’ou
+                BENARD AKOI JACKSON
+                KWASI OHENE AYEH
+                NONTSIKELELO MUTITI
+                NAA DENSUA DARKU
+            </p>
+        </div>
+        <div class="text">
+            <p>
+                ESSÉ DABLA-ATTIKPO
+                FRANCIS DZIWORNU
+                YAW OWUSU
+                ELOLO BOSOKAH
+                ALFRED QUARTEY
+            </p>
+        </div>
+        <div class="text">
+            <p>
+                FREDRICK FIATI JUNIOR
+                TEMA
+                UNIVERSITY HALL
+                KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY
+                BLAXTARLINES
+            </p>
+        </div>
+        <div class="text">
+            <p>
+                SCCA TAMALE
+                KUENYEHIA TRUST FOR CONTEMPORARY GHANAIAN ART
+                CHIMURENGA
+            </p>
+        </div>
     </div>
+</div>
 </body>
 
 </html>
