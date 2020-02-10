@@ -10,20 +10,23 @@ body{
 
 h3, h1{
     font-weight: 500;
-    border-bottom: 2px solid teal;
     padding: 1em;
 }
 
-#ident{
-    background-color: whitesmoke;
-    
+.heads{
+    border-bottom: 2px solid teal;
 }
 
 .navi{
+    display: flex;
     position: fixed;
-    width: 100vw;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 60px;
+    padding: 0.5em;
     z-index: 1;
-    top:-2vh;
+    border-bottom: 2px solid teal;
+    align-items: center;
 }
 
 a{
@@ -41,5 +44,5 @@ li{
     display: grid;
     border-bottom: 2px solid;
     position: relative;
-    top:170px;
+    top:70px;
 }

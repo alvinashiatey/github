@@ -1,0 +1,19 @@
+body{
+    width: 100%;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: teal;
+    font-size: 2em;
+   
+}
+
+li, a{
+    text-decoration: none;
+    list-style: none;
+}
+
+.container{
+    width: 90vw;
+    padding: 1em;
+    margin: auto;
+}
