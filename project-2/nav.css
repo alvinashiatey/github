@@ -1,4 +1,8 @@
 /* Nav test */
+.wayfinder{
+    position: absolute;
+    z-index: 1;
+} 
 
 a {
     text-decoration: none;
@@ -7,7 +11,7 @@ a {
 
 nav {
     z-index: 1;
-    padding: 0.1em;
+    padding: 10px;
     display: flex;
     font-size: 4.5em;
     font-family: 'Courier New', Courier, monospace;
@@ -21,14 +25,15 @@ nav {
     border-radius: 5px;
 }
 
-.home a {
-    width: 70px;
+
+#bttn{
     text-align: center;
-    transition: 1s ease-in-out;
+    width: 70px;
 }
 
 .home a:hover{
     transform: rotate(-90deg);
+    transition: 1s ease-in-out;
 }
 
 .home div {

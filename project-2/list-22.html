@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="nav.css" type="text/css">
     <title>List 22</title>
     <style>
         body {
@@ -16,7 +17,12 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        p {
+        #animationwindow{
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .container p {
             text-align: center;
             line-height: 1.2em;
             letter-spacing: 0.2em;
@@ -85,10 +91,23 @@
 </head>
 
 <body>
+    <div class="wayfinder">
+        <nav>
+            <div class="home">
+                <a href="list-index.html" id="bttn">►</a>
+                <div><a href="#">2</a></div>
+                <div><a href="#">3</a></div>
+                <div><a href="#">4</a></div>
+                <div><a href="#">5</a></div>
+            </div>
+        </nav> 
+    </div>
+
+    <div id="animationwindow">
     <div class="circle c1">&nbsp;</div>
     <div class="circle c2">&nbsp;</div>
     <div class="circle c3">&nbsp;</div>
-
+    </div>
     <div class="container">
         <div class="space">
             <p id="display1">
