@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+    <style>
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+        }
+
+        /* Nav test */
+
+        a {
+            text-decoration: none;
+            color: whitesmoke;
+        }
+
+        nav {
+            z-index: 1;
+            padding: 0.1em;
+            display: flex;
+            font-size: 4.5em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .home {
+            display: inline-flex;
+            position: relative;
+            background-color: teal;
+            padding: 0.01em;
+            border-radius: 5px;
+        }
+
+        .home a {
+            width: 70px;
+            text-align: center;
+        }
+
+        .home div {
+            width: 70px;
+            display: none;
+            text-align: center;
+        }
+
+        .home:hover div {
+            display: block;
+        }
+
+        .home div:hover {
+            background-color: tomato;
+        }
+
+
+        /* end of nav test */
+
+
+        body {
+            width: 100vw;
+            background: whitesmoke;
+            color: #ffa41b;
+            font-family: 'Courier New', Courier, monospace       
+        }
+
+        p {
+            text-align: center;
+            line-height: 2em;
+            font-size: 4em;
+        }
+
+        .container {
+            margin-left: 25vw;
+            top: 50%;
+            position: absolute;
+            width: 45vw;
+            
+            height: 140px;
+            overflow: hidden;
+        }
+
+        .text {
+            animation: moveText 60s ease-in-out infinite;
+        }
+
+        .text:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateY(5px);
+            }
+
+            50% {
+                transform: translateY(-99%);
+            }
+
+            100% {
+                transform: translateY(5px);
+            }
+        }
+
+        hr {
+            position: relative;
+            size: 20;
+            border: none;
+            height: 2px;
+            background-color: #ff5151;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wayfinder">
+        <nav>
+            <div class="home">
+                <a href="#">►</a>
+                <div><a href="#">2</a></div>
+                <div><a href="#">3</a></div>
+                <div><a href="#">4</a></div>
+                <div><a href="#">5</a></div>
+            </div>
+        </nav>
+
+        </divclass>
+
+
+
+        <div class="container">
+            <hr>
+            <div class="text">
+                <p>MARGARET AMEVOR</p>
+                <p>JABEZ FURRER-MENSAH</p>
+                <p>KWAME NKRUMAH</p>
+                <p>MAYA ANGELOU</p>
+                <p>AMA ATA AIDOO</p>
+                <p>MALCOM X</p>
+                <p>W.E.B. DU BOIS</p>
+                <p>MARTIN LUTHER KING</p>
+                <p>EMMETT MCBAIN</p>
+                <p>ARCHIE BOSTON</p>
+                <p>EMORY DOUGLAS</p>
+                <p>SYLVIA HARRIS </p>
+                <p>SAKI MAFUNDIKWA</p>
+                <p>DIÉBÉDO FRANCIS KÉRÉ</p>
+                <p>IBRAHIM MAHAMA</p>
+                <p>kąrî’kạchä seid’ou</p>
+                <p>BENARD AKOI JACKSON</p>
+                <p>KWASI OHENE AYEH</p>
+                <p>NONTSIKELELO MUTITI</p>
+                <p>NAA DENSUA DARKU</p>
+                <p>ESSÉ DABLA-ATTIKPO</p>
+                <p>FRANCIS DZIWORNU</p>
+                <p>YAW OWUSU</p>
+                <p>ELOLO BOSOKAH</p>
+                <p>ALFRED QUARTEY</p>
+                <p>FREDRICK FIATI JUNIOR</p>
+                <p>TEMA</p>
+                <p>UNIVERSITY HALL</p>
+                <p>KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY</p>
+                <p>blaxTARLINES</p>
+                <p>SCCA TAMALE</p>
+                <p>KUENYEHIA TRUST FOR CONTEMPORARY GHANAIAN ART</p>
+                <p>CHIMURENGA</p>
+            </div>
+
+        </div>
+
+
+
+</body>
+
+</html>

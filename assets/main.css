@@ -1,4 +1,13 @@
 /* Put your CSS here! */
+/* reset */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+}
+
+/* End of reset */
 
 body{
     width: 100%;
@@ -42,7 +51,7 @@ li{
     width: 90vw;
     margin: auto;
     display: grid;
-    border-bottom: 2px solid;
+    
     position: relative;
     top:70px;
 }
