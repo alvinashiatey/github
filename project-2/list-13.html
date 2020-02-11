@@ -5,23 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="nav.css" type="text/css">
     <title>List 13</title>
     <style>
         body {
             margin: 0;
         }
 
-        ol {
+        .wayfinder{
+            position: fixed;
+        }
+
+        .container ol {
             display: flex;
             position: absolute;
             top: 40vh;
         }
 
-        a {
+        .container a {
             padding-right: 20vw;
         }
 
-        p {
+        .container p {
             position: absolute;
             top: 10vh;
             width: 5vw;
@@ -36,6 +41,19 @@
 </head>
 
 <body>
+
+    <div class="wayfinder">
+        <nav>
+            <div class="home">
+                <a href="list-index.html" id="bttn">►</a>
+                <div><a href="list-11.html"> 1</a></div>
+                <div><a href="list-12.html"> 2</a></div>
+                <div><a href="list-13.html"> 3</a></div>
+                <div><a href="list-14.html"> 4</a></div>
+                <div><a href="list-15.html"> 5</a></div>
+            </div>
+        </nav> 
+    </div>
 
     <div class="container">
         <div class="line">
