@@ -46,47 +46,12 @@
 
         .container {
             width: 100%;
-            height: 100%;
+            /* height: 100%; */
             display: grid;
             margin: auto;
             grid-template-columns:repeat(3, 1fr);
             grid-auto-rows: minmax(30vh, auto);
-    
-        }
-
-        .circle {
-            position: absolute;
-            width: 6em;
-            height: 6em;
-            border-radius: 3em;
-            background-color: black;
-            left: -100%;
-
-        }
-
-        .c1 {
-            top: 10%;
-            animation: moveIn 15s 1s ease-in-out infinite;
-            overflow: hidden;
-        }
-
-        .c2 {    
-            top: 45%;
-            z-index: 2;
-            animation: moveIn 15s 1.5s ease-in-out infinite;
-            overflow: hidden;
-        }
-
-        .c3 {
-            top: 80%;
-            animation: moveIn 15s 2s ease-in-out infinite;
-            overflow: hidden;
-        }
-
-        @keyframes moveIn {
-            0% {left: -50% }
-            50%{left: 101%;}
-            100% { left: -10%; }
+            grid-auto-columns: minmax(30vh, auto);
         }
 
     </style>

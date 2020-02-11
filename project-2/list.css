@@ -18,6 +18,10 @@ li, a{
     margin: auto;
 }
 
+.container a:hover{
+color: tomato;
+}
+
 .welcome{
     font-size: 4em; 
 }
