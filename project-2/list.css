@@ -3,7 +3,7 @@ body{
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     color: teal;
-    font-size: 3vw;
+    font-size: 100%;
 }
 
 li, a{
@@ -19,7 +19,7 @@ li, a{
 }
 
 .welcome{
-    font-size: 4vw; 
+    font-size: 4em; 
 }
 
 #typeW{
@@ -59,6 +59,7 @@ li, a{
     grid-template-rows: repeat(3, auto);
     grid-auto-flow: column;
     grid-auto-columns: 1fr 1fr;
+    font-size: 2em;
 }
 
 
