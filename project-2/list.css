@@ -9,6 +9,7 @@ body{
 li, a{
     text-decoration: none;
     list-style: none;
+    color: black;
 }
 
 .container{
@@ -53,8 +54,39 @@ li, a{
 }
 
 .wrapper{
-    background-color: tomato;
+    background-color: rgb(235, 235, 125);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr 1fr;
+    height: 50vh;
     overflow: scroll;
+}
+
+
+
+.wrapper h3{
+    background-color: rgb(218, 214, 11);
+    width: 38vw;
+    padding: 0.5em;
+}
+
+/* replacing text */
+
+#genesis:after{
+    content: 'GENESIS';
+}
+
+#genesis:hover::after{
+    content: 'HTML ONLY';
+    color: tomato;
+}
+
+#fun:after{
+    content: 'Listvana';
+}
+
+#fun:hover::after{
+    content: 'CSS on steroids';
+    color: tomato;
 }

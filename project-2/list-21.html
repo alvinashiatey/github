@@ -17,8 +17,7 @@
 
         body {
             width: 100%;
-            /* margin: auto; */
-            background: #21243d;
+            background: whitesmoke;
         }
 
         a {
@@ -28,7 +27,7 @@
         .container p,
         .container a {
             font-family: 'Courier New', Courier, monospace;
-            color: #f5eaea;
+            color: teal;
             font-size: 4em;
         }
 
@@ -37,7 +36,7 @@
         }
 
         .container {
-            padding-top: 2em;
+            padding-top: 6em;
             margin: auto;
             width: 80vw;
             display: flex;
@@ -65,19 +64,39 @@
             color: #7fcd91;
         }
 
-        .text{
+        .text, .text2, .text3{
             display: inline-block;
         }
 
         .text:hover{
-            color:pink;
+            color:tomato;
             animation: textrt 5s ease-in-out;
+        }
+
+        .text2:hover{
+            color:tomato;
+            animation:textspc 2s ease-in-out;
+        }
+
+        .text3:hover{
+            animation:textz 2s ease-in-out;
+        }
+
+        @keyframes textspc {
+            0%{letter-spacing: normal; font-weight: normal;}
+            100%{letter-spacing: 0.4em; font-weight: 510;}
         }
 
         @keyframes textrt {
             0%{transform: rotate(0);}
             50%{transform: rotate(10deg);}
-            100%{transform: rotate(0);;}
+            100%{transform: rotate(0);}
+        }
+
+        @keyframes textz{
+            0%{transform: rotateY(0); transform: rotateX(0); text-shadow: 0 0 0;}
+            50%{transform: rotateY(40deg); transform: rotateX(90deg);text-shadow: 0 0 30px;}
+            100%{transform:rotateY(0); transform: rotateX(0); text-shadow: 0 0 0;}
         }
 
     </style>
@@ -100,7 +119,7 @@
     <div class="container">
         <div class="women">
             <div class="link">
-                <a href="#display1"> WOMEN</a>
+                <a href="#display1">WOMEN</a>
             </div>
             <hr>
             <p id="display1">
@@ -120,25 +139,25 @@
             </div>
             <hr>
             <p id="display2">
-                JABEZ FURRER-MENSAH<span class="backslash">&#92;</span>
-                KWAME NKRUMAH<span class="backslash">&#92;</span>
-                MALCOM X<span class="backslash">&#92;</span>
-                W.E.B. DU BOIS<span class="backslash">&#92;</span>
-                MARTIN LUTHER KING<span class="backslash">&#92;</span>
-                EMMETT MCBAIN<span class="backslash">&#92;</span>
-                ARCHIE BOSTON<span class="backslash">&#92;</span>
-                EMORY DOUGLAS<span class="backslash">&#92;</span>
-                SAKI MAFUNDIKWA<span class="backslash">&#92;</span>
-                DIÉBÉDO FRANCIS KÉRÉ<span class="backslash">&#92;</span>
-                IBRAHIM MAHAMA<span class="backslash">&#92;</span>
-                kąrî’kạchä seid’ou<span class="backslash">&#92;</span>
-                BENARD AKOI JACKSON<span class="backslash">&#92;</span>
-                KWASI OHENE AYEH<span class="backslash">&#92;</span>
-                FRANCIS DZIWORNU<span class="backslash">&#92;</span>
-                YAW OWUSU<span class="backslash">&#92;</span>
-                ELOLO BOSOKAH<span class="backslash">&#92;</span>
-                ALFRED QUARTEY<span class="backslash">&#92;</span>
-                FREDRICK FIATI JUNIOR<span class="backslash">&#92;</span>
+               <span class="text2"> JABEZ FURRER-MENSAH</span> <span class="backslash">&#92;</span>
+               <span class="text2"> KWAME NKRUMAH</span> <span class="backslash">&#92;</span>
+               <span class="text2"> MALCOM X</span> <span class="backslash">&#92;</span>
+               <span class="text2"> W.E.B. DU BOIS</span> <span class="backslash">&#92;</span>
+               <span class="text2"> MARTIN LUTHER KING</span> <span class="backslash">&#92;</span>
+               <span class="text2"> EMMETT MCBAIN</span> <span class="backslash">&#92;</span>
+               <span class="text2"> ARCHIE BOSTON</span> <span class="backslash">&#92;</span>
+               <span class="text2"> EMORY DOUGLAS</span> <span class="backslash">&#92;</span>
+               <span class="text2"> SAKI MAFUNDIKWA</span> <span class="backslash">&#92;</span>
+               <span class="text2"> DIÉBÉDO FRANCIS KÉRÉ</span> <span class="backslash">&#92;</span>
+               <span class="text2"> IBRAHIM MAHAMA</span> <span class="backslash">&#92;</span>
+               <span class="text2"> kąrî’kạchä seid’ou</span> <span class="backslash">&#92;</span>
+               <span class="text2"> BENARD AKOI JACKSON</span> <span class="backslash">&#92;</span>
+               <span class="text2"> KWASI OHENE AYEH</span> <span class="backslash">&#92;</span>
+               <span class="text2"> FRANCIS DZIWORNU</span> <span class="backslash">&#92;</span>
+               <span class="text2"> YAW OWUSU</span> <span class="backslash">&#92;</span>
+               <span class="text2"> ELOLO BOSOKAH</span> <span class="backslash">&#92;</span>
+               <span class="text2"> ALFRED QUARTEY</span> <span class="backslash">&#92;</span>
+               <span class="text2"> FREDRICK FIATI JUNIOR</span> <span class="backslash">&#92;</span>
             </p>
         </div>
         <div class="spaces">
@@ -147,13 +166,13 @@
             </div>
             <hr>
             <p id="display3">
-                TEMA<span class="backslash">&#92;</span>
-                UNIVERSITY HALL<span class="backslash">&#92;</span>
-                KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY<span class="backslash">&#92;</span>
-                BLAXTARLINES<span class="backslash">&#92;</span>
-                SCCA TAMALE<span class="backslash">&#92;</span>
-                KUENYEHIA TRUST FOR CONTEMPORARY GHANAIAN ART<span class="backslash">&#92;</span>
-                CHIMURENGA<span class="backslash">&#92;</span>
+               <span class="text3"> TEMA </span> <span class="backslash">&#92;</span>
+               <span class="text3"> UNIVERSITY HALL </span> <span class="backslash">&#92;</span>
+               <span class="text3"> KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY </span> <span class="backslash">&#92;</span>
+               <span class="text3"> BLAXTARLINES </span> <span class="backslash">&#92;</span>
+               <span class="text3"> SCCA TAMALE </span> <span class="backslash">&#92;</span>
+               <span class="text3"> KUENYEHIA TRUST FOR CONTEMPORARY GHANAIAN ART </span> <span class="backslash">&#92;</span>
+               <span class="text3"> CHIMURENGA </span> <span class="backslash">&#92;</span>
             </p>
         </div>
 
