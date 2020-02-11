@@ -37,6 +37,7 @@ li, a{
     white-space: nowrap;
     border-right: 0 solid teal;
     animation: typeIn2 5s 2.5s steps(40, end) forwards;
+
 }
 
 
