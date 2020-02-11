@@ -63,7 +63,7 @@ color: tomato;
     grid-template-rows: repeat(3, auto);
     grid-auto-flow: column;
     grid-auto-columns: 1fr 1fr;
-    font-size: 1.3em;
+    font-size: 2em;
 }
 
 
