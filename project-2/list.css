@@ -3,7 +3,7 @@ body{
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     color: teal;
-    font-size: 2em;
+    font-size: 3vw;
 }
 
 li, a{
@@ -13,6 +13,48 @@ li, a{
 
 .container{
     width: 90vw;
-    padding: 1em;
+    padding: 1vw;
     margin: auto;
+}
+
+.welcome{
+    font-size: 4vw; 
+}
+
+#typeW{
+    animation: typeIn 5s steps(40, end) forwards;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.2em solid teal;
+}
+
+#typeW1{
+    width: 0vw;
+    position: relative;
+    top: -2vw;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0 solid teal;
+    animation: typeIn2 5s 2.5s steps(40, end) forwards;
+    
+}
+
+
+@keyframes typeIn {
+    0%{width:0;}
+    48%{border-right: none;} 
+    100%{ width: 100%; border-right: none;;}
+}
+
+@keyframes typeIn2 {
+    0%{width:0; border-right: 0.2em solid teal;}
+    30%{border-right: none;}
+    100%{ width: 100%; }
+}
+
+.wrapper{
+    background-color: tomato;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: scroll;
 }
