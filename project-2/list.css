@@ -37,7 +37,6 @@ li, a{
     white-space: nowrap;
     border-right: 0 solid teal;
     animation: typeIn2 5s 2.5s steps(40, end) forwards;
-    
 }
 
 
@@ -59,8 +58,6 @@ li, a{
     grid-template-rows: repeat(3, auto);
     grid-auto-flow: column;
     grid-auto-columns: 1fr 1fr;
-    height: 50vh;
-    overflow: scroll;
 }
 
 
@@ -74,11 +71,38 @@ li, a{
 /* replacing text */
 
 #genesis:after{
-    content: 'GENESIS';
+    content: 'List city';
 }
 
 #genesis:hover::after{
     content: 'HTML ONLY';
+    color: tomato;
+}
+
+#polis:after{
+    content: 'Listropolis';
+}
+
+#polis:hover::after{
+    content: 'HTML ONLY';
+    color: tomato;
+}
+
+#dale:after{
+    content: 'Listerdale';
+}
+
+#dale:hover::after{
+    content: 'HTML and some CSS';
+    color: tomato;
+}
+
+#field:after{
+    content: 'Listfield';
+}
+
+#field:hover::after{
+    content: 'HTML and some more CSS';
     color: tomato;
 }
 
