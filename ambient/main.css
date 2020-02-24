@@ -1,0 +1,53 @@
+body {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.background {
+  background: linear-gradient(45deg, red, blue);
+  width: 100vw;
+  height: 100vh;
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease-in-out infinite;
+          animation: gradient 15s ease-in-out infinite;
+}
+
+.white-overlay {
+  background: linear-gradient(-45deg, #fbff00, teal);
+  width: 100vw;
+  height: 100vh;
+  background-size: 200% 200%;
+  -webkit-animation: gradient 15s ease-in-out infinite;
+          animation: gradient 15s ease-in-out infinite;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+/*# sourceMappingURL=main.css.map */

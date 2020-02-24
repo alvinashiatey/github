@@ -1,0 +1,39 @@
+body{
+    overflow: hidden;
+    display: flex;
+    width: 100vw;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+.background{
+    background: linear-gradient(45deg, red, blue);
+    width: 100vw;
+    height: 100vh;
+    background-size: 400% 400%;
+    animation: gradient 15s ease-in-out infinite;
+}
+
+.white-overlay{
+    background: linear-gradient(-45deg, rgb(251, 255, 0), teal);
+    width: 100vw;
+    height: 100vh;
+    background-size: 200% 200%;
+    animation: gradient 15s ease-in-out infinite;
+   
+}
+
+
+@keyframes gradient{
+    0%{
+        background-position: 0 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0 50%;
+    }
+}
+

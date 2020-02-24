@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+.circle {
+  position: relative;
+  border-radius: 50%;
+  top: 50vh;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  width: 50vw;
+  height: 50vw;
+  margin: 0 auto;
+  background: repeating-radial-gradient(20px, red, teal, gray);
+  -webkit-animation: scaling 20s ease-in-out infinite;
+          animation: scaling 20s ease-in-out infinite;
+  -webkit-box-shadow: inset 5px 8px 50px white;
+          box-shadow: inset 5px 8px 50px white;
+}
+
+@-webkit-keyframes scaling {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 500%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes scaling {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 500%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+/*# sourceMappingURL=am.css.map */
