@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  height: 100vh;
+  font-size: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+#scene-container,
+#sun-container {
+  width: 50vw;
+  height: 100vh;
+  display: block;
+  background-color: #000d1a;
+  position: relative;
+}
+
+.slidein {
+  position: absolute;
+  margin: 0.5em;
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  border-radius: 20px;
+  z-index: 1000;
+  right: 0;
+  -webkit-clip-path: circle(20px at 180px 20px);
+          clip-path: circle(20px at 180px 20px);
+  -webkit-transition: -webkit-clip-path 0.5s;
+  transition: -webkit-clip-path 0.5s;
+  transition: clip-path 0.5s;
+  transition: clip-path 0.5s, -webkit-clip-path 0.5s;
+}
+
+.slidein:hover,
+.slidein:focus {
+  -webkit-clip-path: circle(100%);
+          clip-path: circle(100%);
+}
+
+.info {
+  position: absolute;
+  left: 50%;
+  width: 50vw;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: auto;
+}
+
+.info #location1,
+.info #weather1 {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Ruda";
+  font-weight: 100;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    display: block;
+    overflow: scroll;
+  }
+  #scene-container,
+  #sun-container {
+    width: 100vw;
+  }
+  .slidein {
+    position: relative;
+    display: block;
+    width: 100vw;
+    border-radius: 0;
+    opacity: 100%;
+    -webkit-clip-path: none;
+            clip-path: none;
+  }
+}
+/*# sourceMappingURL=main.css.map */

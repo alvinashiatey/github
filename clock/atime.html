@@ -3,50 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Ruda&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
     <script src="./build/three.js"></script>
     <script src="https://threejs.org/build/three.js"></script>
     <title>Document</title>
-
-    <style>
-      body {
-        margin: 0;
-        height: 100vh;
-        font-size: 100%;
-        display: flex;
-        overflow: hidden;
-      }
-
-      #scene-container,
-      #sun-container {
-        width: 50vw;
-        height: 100vh;
-        display: block;
-        background-color: #000d1a;
-        position: relative;
-      }
-
-      .info {
-        position: absolute;
-        left: 50%;
-        width: 200px;
-        transform: translateX(-50%);
-        margin: auto;
-      }
-
-      #location1,
-      #weather1 {
-        color: white;
-        text-align: center;
-        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-          sans-serif;
-      }
-    </style>
   </head>
   <body>
 
+    <div class="slidein">
+      
+    </div>
     <div id="sun-container">
       <div class="info">
         <h3 id="location1"></h3>

@@ -3,62 +3,9 @@ let sunContainer, sunScene, sunCamera, sunRenderer, sunMesh;
 let localDate = new Date();
 let localHour = localDate.getHours();
 
-
-function setBackgroundColor(){
-    let sunCanvasBg, backgroundCanvas;
-    sunCanvasBg = document.querySelector('#sun-container');
-    backgroundCanvas = ['skyblue','#0059b3','#004d99','#001a33','#000d1a', '#02020b'];
- 
-        if (localHour >= 6 && localHour <= 10){
-            sunCanvasBg.style.backgroundColor = 'skyblue';
-            sunMesh.position.set(0,-8,0);
-            anime({
-                targets: sunMesh.position,
-                keyframes:[
-                    {y: -1},
-                    {y: 0}
-                ],
-                delay:-10,
-                duration:10000,
-                easing:'cubicBezier(0.405, 0.005, 0.35, 1)',
-            })
-        } else if (localHour >= 11 && localHour <= 13){
-            sunCanvasBg.style.backgroundColor = backgroundCanvas[1];
-        } else if (localHour >= 14 && localHour <= 17){
-            sunCanvasBg.style.backgroundColor = backgroundCanvas[2];
-        } else if (localHour >= 18 && localHour <= 20){
-            sunCanvasBg.style.backgroundColor = backgroundCanvas[4];
-            anime({
-                targets: sunMesh.position,
-                keyframes:[
-                    {y: 0},
-                    {y: 9}
-                ],
-                delay:0,
-                duration:10000,
-                easing:'cubicBezier(0.405, 0.005, 0.35, 1)',
-            })
-            anime({
-                targets: sunMesh2.position,
-                keyframes:[
-                    {z: -200},
-                    {z: 0}
-                ],
-                delay:0,
-                duration:15000,
-                easing:'cubicBezier(0.405, 0.005, 0.35, 1)',
-            }, '-=10000')
-        } else{
-            sunCanvasBg.style.backgroundColor = backgroundCanvas[5];
-        }  
-  };
-
-
-
 function startSun() {
   sunContainer = document.querySelector("#sun-container");
   sunScene = new THREE.Scene();
-  
 
   sunCameraCreated();
   sunRendereCreated();
@@ -69,6 +16,7 @@ function startSun() {
 
   sunRenderer.setAnimationLoop(() => {
     animateSun();
+
     renderSun();
   });
 }
@@ -107,28 +55,24 @@ function sunRendereCreated() {
 
 //sunMesh Function
 function sunMeshCreated() {
-    const sunGeometry2 = new THREE.SphereBufferGeometry(2, 20, 20);
+  const sunGeometry2 = new THREE.SphereBufferGeometry(2, 20, 20);
 
-    // load sun texture
-    sunTextureLoader2 = new THREE.TextureLoader();
-    sunTexture2 = sunTextureLoader2.load("moon.jpg");
-  
-    //encoding
-    sunTexture2.encoding = THREE.sRGBEncoding;
-    sunTexture2.anisotropy = 16;
-  
-    //Material and coloring of obj
-    const sunMaterial2 = new THREE.MeshStandardMaterial({
-      map: sunTexture2,
-      displacementMap: sunTexture2,
-      displacementScale: 0.1
-    })
+  // load sun texture
+  sunTextureLoader2 = new THREE.TextureLoader();
+  sunTexture2 = sunTextureLoader2.load("moon.jpg");
 
-    
+  //encoding
+  sunTexture2.encoding = THREE.sRGBEncoding;
+  sunTexture2.anisotropy = 16;
 
-  
-  
- const sunGeometry = new THREE.SphereBufferGeometry(2, 20, 20);
+  //Material and coloring of obj
+  const sunMaterial2 = new THREE.MeshStandardMaterial({
+    map: sunTexture2,
+    displacementMap: sunTexture2,
+    displacementScale: 0.1
+  });
+
+  const sunGeometry = new THREE.SphereBufferGeometry(2, 20, 20);
 
   // load sun texture
   sunTextureLoader = new THREE.TextureLoader();
@@ -143,19 +87,19 @@ function sunMeshCreated() {
     map: sunTexture,
     displacementMap: sunTexture,
     displacementScale: 0.1
-  })
+  });
 
   //creating the object by combining the geometry and material
   sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);
   sunMesh2 = new THREE.Mesh(sunGeometry2, sunMaterial2);
 
-  sunMesh2.position.set(0,0,-200);
-  
-  sunMesh.position.set(0,0,0);
+  sunMesh2.position.set(0, 0, -200);
+
+  sunMesh.position.set(0, 0, 0);
 
   sunScene.add(sunMesh);
   sunScene.add(sunMesh2);
-};
+}
 
 //orbital control function
 // function sunControlsCreated() {
@@ -165,7 +109,7 @@ function sunMeshCreated() {
 // sun Light Created
 function sunLightCreated() {
   //light
-  const sunLight = new THREE.DirectionalLight(0xffffff, 5);
+  const sunLight = new THREE.DirectionalLight(0xffffff, 4);
   sunLight.position.set(10, 10, 10);
   sunScene.add(sunLight);
 
@@ -175,25 +119,87 @@ function sunLightCreated() {
 
 //animated
 function animateSun() {
+  //test
 
-//   const localDate = new Date();
-//   const localHour = localDate.getHours();
-  
+  sunMesh2.rotation.x -= 0.002;
+  sunMesh2.rotation.y -= 0.002;
+  sunMesh2.rotation.z -= 0.002;
+
+  //   const localDate = new Date();
+  //   const localHour = localDate.getHours();
 
   if (localHour >= 6 && localHour <= 18) {
-
     var tl = gsap.timeline({ repeat: -1 });
     let offR;
-    offR = '-= 0.002';
-    tl.to(sunMesh.rotation, { duration: 0, z:offR, x: offR, y: offR, ease: "sine.out" });
-  } else{
+    offR = "-= 0.002";
+    tl.to(sunMesh.rotation, {
+      duration: 0,
+      z: offR,
+      x: offR,
+      y: offR,
+      ease: "sine.out"
+    });
+  } else {
     sunMesh2.rotation.x -= 0.001;
     sunMesh2.rotation.y -= 0.001;
     sunMesh2.rotation.z -= 0.001;
-    
   }
 }
 
+function setBackgroundColor() {
+  let sunCanvasBg, backgroundCanvas;
+  sunCanvasBg = document.querySelector("#sun-container");
+  backgroundCanvas = [
+    "skyblue",
+    "#0059b3",
+    "#004d99",
+    "#001a33",
+    "#000d1a",
+    "#02020b"
+  ];
+
+  if (localHour >= 6 && localHour <= 10) {
+    sunCanvasBg.style.backgroundColor = "skyblue";
+    sunMesh.position.set(0, -8, 0);
+    anime({
+      targets: sunMesh.position,
+      keyframes: [{ y: -1 }, { y: 0 }],
+      delay: -10,
+      duration: 10000,
+      easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
+    });
+  } else if (localHour >= 11 && localHour <= 13) {
+    sunCanvasBg.style.backgroundColor = backgroundCanvas[1];
+  } else if (localHour >= 14 && localHour <= 17) {
+    sunCanvasBg.style.backgroundColor = backgroundCanvas[2];
+  } else if (localHour >= 18 && localHour <= 23) {
+    sunCanvasBg.style.backgroundColor = backgroundCanvas[4];
+    anime({
+      targets: sunMesh.position,
+      keyframes: [{ y: 0 }, { y: 9 }],
+      delay: 0,
+      duration: 10000,
+      easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
+    });
+    anime(
+      {
+        targets: sunMesh2.position,
+        keyframes: [{ z: -200 }, { z: 0 }],
+        delay: 0,
+        duration: 15000,
+        easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
+      },
+      "-=10000"
+    );
+  } else {
+  sunCanvasBg.style.backgroundColor = backgroundCanvas[5];
+  sunMesh2.position.set(0, 0, 0);
+  sunMesh.position.set(0, 0, -200);
+  sunMesh2.rotation.x -= 0.002;
+  sunMesh2.rotation.y -= 0.002;
+  sunMesh2.rotation.z -= 0.002;
+  }
+}
 //Renderer
 
 function renderSun() {
@@ -202,6 +208,3 @@ function renderSun() {
 
 //  call the sun
 startSun();
-
-
-
