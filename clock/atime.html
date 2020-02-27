@@ -3,27 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Ruda&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
-    <script src="./build/three.js"></script>
     <script src="https://threejs.org/build/three.js"></script>
     <title>Document</title>
   </head>
   <body>
-
+    
     <div class="slidein">
-      
+      <div id="collect-info">
+        <input type="text" name="" id="location" value="Ghana"  required/> <button type="submit" id="submit">SUBMIT</button>
+      </div>
     </div>
+
     <div id="sun-container">
       <div class="info">
         <h3 id="location1"></h3>
         <p id="weather1"></p>
       </div>
     </div>
-    <div id="scene-container"></div>
+
+    <div id="scene-container">
+      <div class="info2">
+        <h3 id="location2">Accra</h3>
+        <p id="weather2"> weather</p>
+      </div>
+    </div>
 
     <!-- scripts -->
     <script src="sun.js"></script>

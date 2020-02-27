@@ -16,7 +16,6 @@ function startSun() {
 
   sunRenderer.setAnimationLoop(() => {
     animateSun();
-
     renderSun();
   });
 }
@@ -49,7 +48,6 @@ function sunRendereCreated() {
     sunRenderer.setSize(sunContainer.clientWidth, sunContainer.clientHeight);
     sunCamera.aspect = sunContainer.clientWidth / sunContainer.clientHeight;
     sunCamera.updateProjectionMatrix();
-    console.log("size changed");
   });
 }
 
@@ -189,7 +187,6 @@ function setBackgroundColor() {
         duration: 15000,
         easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
       },
-      "-=10000"
     );
   } else {
   sunCanvasBg.style.backgroundColor = backgroundCanvas[5];
@@ -205,6 +202,8 @@ function setBackgroundColor() {
 function renderSun() {
   sunRenderer.render(sunScene, sunCamera);
 }
+
+
 
 //  call the sun
 startSun();
