@@ -83,7 +83,7 @@ function geocode() {
   })
   .then(response => {
       // log full response
-    console.log(response);
+    //console.log(response);
 
       let location2 = response.data.results[0].address_components[0].long_name;
       let pinLocation2 = document.querySelector("#location2");
@@ -96,7 +96,7 @@ function geocode() {
     .get(`https://api.darksky.net/forecast/b20a7ac99ea1d93df5831a1541ba3cb6/${lat},${lng}`)
     .then(response =>{
         //log response
-        //console.log(response);
+        console.log(response);
 
         //temperature and summary
         const weather2 = document.querySelector('#weather2');
