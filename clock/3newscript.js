@@ -34,7 +34,7 @@ function cameraCreated() {
 
 //renderer function
 function rendererCreated() {
-  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -42,7 +42,7 @@ function rendererCreated() {
   renderer.gammaFactor = 2.2;
   renderer.gammaOutput = true;
 
-  renderer.setClearColor("#000d1a");
+  //renderer.setClearColor("#000d1a");
   container.appendChild(renderer.domElement);
 
   //animation is called here
@@ -109,3 +109,7 @@ function render() {
 
 // call to set up everythin
 init();
+
+
+// todo link animation to time 
+//link background to time  
