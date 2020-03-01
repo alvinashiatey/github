@@ -6,7 +6,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
-  font-family: 'Orbitron';
+  font-family: 'PT Sans';
 }
 
 #scene-container,
