@@ -6,7 +6,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
-  font-family: 'PT Sans';
+  font-family: "PT Sans";
 }
 
 #scene-container,
@@ -23,7 +23,7 @@ body {
   margin: 0.5em;
   width: 200px;
   height: 100px;
-  background-color: white;
+  background-color: #000d1a;
   border-radius: 20px;
   z-index: 1000;
   right: 0;
@@ -77,9 +77,20 @@ body {
 
 @media only screen and (max-width: 600px) {
   body {
-    display: block;
-    overflow: scroll;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow-y: scroll;
     height: 100vh;
+    margin: 0;
+    padding: 0;
   }
   #scene-container,
   #sun-container {
@@ -90,41 +101,56 @@ body {
   }
   .slidein {
     position: relative;
-    display: block;
     width: 100vw;
+    height: 90px;
     border-radius: 0;
+    margin: 0;
     opacity: 100%;
     -webkit-clip-path: none;
             clip-path: none;
+    border-bottom: 0.5px dashed rgba(255, 255, 255, 0.4);
   }
   .slidein #collect-info {
-    position: relative;
     width: 100vw;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    margin: auto;
+    margin-top: 20px;
   }
   .slidein #collect-info #location {
     color: white;
-    background-color: #02394A;
-    border: none;
-    height: 2.5em;
+    cursor: text;
+    background-color: #000d1a;
+    height: 40px;
     width: 20em;
-    font-family: 'Orbitron';
+    border: 0;
+    outline: 0;
+    font-family: "PT Sans";
     font-size: 1em;
-    border-radius: 5px;
-    padding-left: 0.5em;
+    border-bottom: 1px solid white;
   }
-  .slidein #collect-info #location :focus {
-    border: 2px solid skyblue;
-  }
-  .slidein #collect-info button {
-    font-family: 'Orbitron';
-    height: 4em;
-    width: 8em;
+  .slidein #collect-info #submit {
+    font-family: inherit;
+    font-size: 0.9em;
+    height: 40px;
+    width: 7em;
     color: white;
+    outline: none;
     background-color: #000d1a;
     border-radius: 5px;
+  }
+  .slidein #collect-info #submit:hover, .slidein #collect-info #submit:focus {
+    background-color: white;
+    color: #000d1a;
+    -webkit-transition: 0.4ss ease-in;
+    transition: 0.4ss ease-in;
   }
 }
 /*# sourceMappingURL=main.css.map */

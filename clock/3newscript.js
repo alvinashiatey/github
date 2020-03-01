@@ -1,5 +1,5 @@
 //Global variables
-let container, scene, camera, renderer, mesh;
+let container, scene, camera, renderer, mesh, mesh2;
 
 //initiaing function
 function init() {
@@ -9,6 +9,7 @@ function init() {
   cameraCreated();
   rendererCreated();
   meshCreated();
+  mesh2Created();
   lightCreated();
 
   renderer.setAnimationLoop(() => {
@@ -56,7 +57,9 @@ function rendererCreated() {
 }
 
 
-// mesh geometry funtion
+// mesh geometry funtion for moon and sun
+
+//mesh for sun
 function meshCreated() {
   const geometry = new THREE.SphereBufferGeometry(2, 20, 20);
 
@@ -75,14 +78,42 @@ function meshCreated() {
   const material = new THREE.MeshStandardMaterial({ map: texture, displacementMap: texture, displacementScale: 0.1 });
   mesh = new THREE.Mesh(geometry, material);
 
+  mesh.position.set(0, 0, 0);
   scene.add(mesh);
+
+  
+}
+
+
+//messh for sun
+function mesh2Created() {
+  const geometry2 = new THREE.SphereBufferGeometry(2, 20, 20);
+
+  //settiung up texture loader
+  const textureLoader2 = new THREE.TextureLoader();
+
+  //loading texture
+  const texture2 = textureLoader2.load("sun.jpg");
+
+  //texture encoding
+  texture2.encoding = THREE.sRGBEncoding;
+
+  //reducing bluring at glancing angles
+  texture2.anisotropy = 16;
+
+  const material2 = new THREE.MeshStandardMaterial({ map: texture2, displacementMap: texture2, displacementScale: 0.1 });
+  mesh2 = new THREE.Mesh(geometry2, material2);
+
+  mesh2.position.set(0, 0, -10);
+
+  scene.add(mesh2);
 
 }
 
 // light function
 function lightCreated(){
     //creating light
-    var light = new THREE.DirectionalLight(0xffffff, 0.5);
+    var light = new THREE.DirectionalLight(0xffffff, 0.6);
   
     //light position
     light.position.set(10, 10, 10);
@@ -98,6 +129,15 @@ function updateSc() {
    mesh.rotation.z += 0.001;
    mesh.rotation.y += 0.005;
    mesh.rotation.x += 0.001;
+
+   mesh2.rotation.z += 0.001;
+   mesh2.rotation.y += 0.005;
+   mesh2.rotation.x += 0.001;
+
+
+
+
+
 }
 
 
@@ -113,4 +153,59 @@ init();
 
 // todo link animation to time 
 
+function timeChange(hourUpdate){
+  let sceneCanvasBg, backgroundCanvas;
+  sceneCanvasBg = document.querySelector("#scene-container");
+  backgroundCanvas = [
+    "skyblue",
+    "#0059b3",
+    "#004d99",
+    "#001a33",
+    "#000d1a",
+    "#02020b"
+  ];
 
+  var tl = anime.timeline({
+    duration: 5000,
+    easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
+  })
+
+  if (hourUpdate >= 6 && hourUpdate <= 10) {
+    mesh2.position.set(0, -8, 0);
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[0];
+    //animating thr sun living
+    tl
+    .add({
+      targets: mesh.position,
+      keyframes: [{ y: 0 }, { y: 9 }],  
+     },)
+    // animating sun rising
+    .add({
+        targets: mesh2.position,
+        keyframes: [{ y: -1 }, { y: 0 }],
+    },'-=1')
+
+  } else if (hourUpdate >= 11 && hourUpdate <= 13) {
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[1];
+  } else if (hourUpdate >= 14 && hourUpdate <= 17) {
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[2];
+  } else if (hourUpdate >= 18 && hourUpdate <= 23) {
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[4];
+    // animating sunsetting
+    mesh.position.set(0, -8, 0);
+    mesh2.position.set(0, 0, 0);
+    tl.add ({
+      targets:mesh2.position,
+      keyframes: [{ y: 0 }, { y: 9 }],
+    })
+    .add({
+      targets: mesh.position,
+        keyframes: [{ y: -1 }, { y: 0 }],
+    },'-=1')
+  } else {
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[5];
+    mesh.position.set(0, 0, 0);
+    mesh2.position.set(0, -8, 0);
+  }
+
+}

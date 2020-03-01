@@ -16,36 +16,36 @@ var geoLocate = (function() {
     darkSky(geoLo.lat, geoLo.long);
   }
 
-
   // fetching data from Api
   function googleMapRequest(lat, lng) {
     var googleAPI = "AIzaSyDKdwsFsIw1STe6Xf2zUFH0Sk8n6YQza40";
-    axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
-      params: {
-        latlng: `${lat},${lng}`,
-        key: googleAPI
-      }
-    })
-    .then(response => {
-        console.log(response);
+    axios
+      .get("https://maps.googleapis.com/maps/api/geocode/json", {
+        params: {
+          latlng: `${lat},${lng}`,
+          key: googleAPI
+        }
+      })
+      .then(response => {
+        //console.log(response);
         let location1 = response.data.results[7].formatted_address;
         let pinLocation1 = document.querySelector("#location1");
 
         pinLocation1.textContent += location1.padStart();
-    })
-    .catch(error => {
+      })
+      .catch(error => {
         console.log(error);
       });
   }
 
-  function darkSky(lat, lng){
+  function darkSky(lat, lng) {
     axios
       .get(
         `https://api.darksky.net/forecast/b20a7ac99ea1d93df5831a1541ba3cb6/${lat},${lng}`
       )
-      .then(response => {  
-          console.log(response);
-          let weather1 = document.querySelector("#weather1");
+      .then(response => {
+        //console.log(response);
+        let weather1 = document.querySelector("#weather1");
         const { temperature, summary } = response.data.currently;
 
         let celsius = Math.floor(((temperature - 32) * 5) / 9);
@@ -56,31 +56,25 @@ var geoLocate = (function() {
         console.log(error);
       });
   }
-
 })();
 
-
-
-/// fine tune into modules 
-(function geocode2() {
+/// fine tune into modules
+var UIrequest = (function() {
   let address;
   const getAddress = document.querySelector("#submit");
   // receiving parsed input value
   function setLocation() {
     const location1 = document.querySelector("#location");
     address = location1.value;
-    console.log(address);
-    return address;
+    getLocation(address);
   }
 
-  // fetching for location
-  function getLocation() {
-    vL = document.querySelector("#location").value;
-
+  function getLocation(address) {
+    // vL = document.querySelector("#location").value;
     axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
-          address: vL,
+          address: address,
           key: "AIzaSyDKdwsFsIw1STe6Xf2zUFH0Sk8n6YQza40"
         }
       })
@@ -102,7 +96,7 @@ var geoLocate = (function() {
           )
           .then(response => {
             //log response
-            console.log(response);
+            // console.log(response);
 
             //temperature and summary
             const weather2 = document.querySelector("#weather2");
@@ -111,46 +105,7 @@ var geoLocate = (function() {
             let celsius = Math.floor(((temperature - 32) * 5) / 9);
 
             weather2.innerHTML = `${celsius} &#176; ${summary}`;
-
-            axios
-              .get(`http://worldtimeapi.org/api/timezone/${timeZone}`)
-              .then(response => {
-                const offSet = response.data.utc_offset;
-                let newDate = new Date();
-                let utc =newDate.getTime() + newDate.getTimezoneOffset() * 60000;
-                let nd = new Date(utc + 3600000 * offSet.split(":", 1));
-                let dynamicHour = nd.getHours()
-                console.log(nd)
-                let sceneCanvasBg, backgroundCanvas;
-                sceneCanvasBg = document.querySelector("#scene-container");
-                backgroundCanvas = [
-                  "skyblue",
-                  "#0059b3",
-                  "#004d99",
-                  "#001a33",
-                  "#000d1a",
-                  "#02020b"
-                ];
-
-                if (dynamicHour  >= 6 && dynamicHour <= 10){
-                  sceneCanvasBg.style.backgroundColor = backgroundCanvas[0];
-                } else if (dynamicHour  >= 11 && dynamicHour >= 13){
-                  sceneCanvasBg.style.backgroundColor = backgroundCanvas[1];
-                } else if (dynamicHour  >= 14 && dynamicHour >= 17){
-                  sceneCanvasBg.style.backgroundColor = backgroundCanvas[2];
-                } else if (dynamicHour  >= 18 && dynamicHour >= 23){
-                  sceneCanvasBg.style.backgroundColor = backgroundCanvas[4];
-                }else{
-                  sceneCanvasBg.style.backgroundColor = backgroundCanvas[5];
-                }
-
-
-
-
-
-
-
-              });
+            timeOffset(timeZone);
           });
       })
       .catch(error => {
@@ -158,12 +113,31 @@ var geoLocate = (function() {
       });
   }
 
-  function newtime() {}
-
   // Button to call functions
-  getAddress.addEventListener("click", () => {
-    setLocation();
-    getLocation();
-    newtime();
+  getAddress.addEventListener("click", setLocation);
+  document.addEventListener("keypress", e => {
+    if (e.keyCode === 13 || e.which === 13) {
+      setLocation();
+    }
   });
 })();
+
+
+function timeOffset(timeZne) {
+  axios
+    .get(`http://worldtimeapi.org/api/timezone/${timeZne}`)
+    .then(response => {
+      const offSet = response.data.utc_offset;
+      let newDate = new Date();
+      let utc = newDate.getTime() + newDate.getTimezoneOffset() * 60000;
+      let nd = new Date(utc + 3600000 * offSet.split(":", 1));
+      let dynamicHour = nd.getHours();
+
+      // testing code 
+      timeChange(dynamicHour);
+
+      // console.log(nd);
+     
+    
+    });
+}
