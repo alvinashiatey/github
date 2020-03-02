@@ -186,11 +186,13 @@ function timeChange(hourUpdate){
     },'-=1')
 
   } else if (hourUpdate >= 11 && hourUpdate <= 13) {
+    mesh2.position.set(0, 0, 1);
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[1];
   } else if (hourUpdate >= 14 && hourUpdate <= 17) {
+    mesh2.position.set(0, 0, 1);
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[2];
-  } else if (hourUpdate >= 18 && hourUpdate <= 23) {
-    sceneCanvasBg.style.backgroundColor = backgroundCanvas[4];
+  } else if (hourUpdate >= 18 && hourUpdate <= 20) {
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[3];
     // animating sunsetting
     mesh.position.set(0, -8, 0);
     mesh2.position.set(0, 0, 0);
@@ -202,7 +204,12 @@ function timeChange(hourUpdate){
       targets: mesh.position,
         keyframes: [{ y: -1 }, { y: 0 }],
     },'-=1')
-  } else {
+  } else if (hourUpdate >= 20 && hourUpdate <= 23) {
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[4];
+    mesh.position.set(0, 0, 0);
+    mesh2.position.set(0, -8, 0);
+  }
+  else {
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[5];
     mesh.position.set(0, 0, 0);
     mesh2.position.set(0, -8, 0);
