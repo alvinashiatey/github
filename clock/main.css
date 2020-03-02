@@ -149,8 +149,8 @@ body {
   .slidein #collect-info #submit:hover, .slidein #collect-info #submit:focus {
     background-color: white;
     color: #000d1a;
-    -webkit-transition: 0.4ss ease-in;
-    transition: 0.4ss ease-in;
+    -webkit-transition: 1ss ease-in;
+    transition: 1ss ease-in;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -127,16 +127,14 @@ function animateSun() {
   //   const localHour = localDate.getHours();
 
   if (localHour >= 6 && localHour <= 18) {
-    var tl = gsap.timeline({ repeat: -1 });
-    let offR;
-    offR = "-= 0.002";
-    tl.to(sunMesh.rotation, {
-      duration: 0,
-      z: offR,
+    let offR = "-= 0.002";
+    anime({
+      targets: sunMesh.rotation,
+      z:  offR,
       x: offR,
       y: offR,
-      ease: "sine.out"
-    });
+      easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
+    })
   } else {
     sunMesh2.rotation.x -= 0.001;
     sunMesh2.rotation.y -= 0.001;
