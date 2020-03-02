@@ -122,10 +122,10 @@ function animateSun() {
   sunMesh2.rotation.x -= 0.002;
   sunMesh2.rotation.y -= 0.002;
   sunMesh2.rotation.z -= 0.002;
-
+  
   //   const localDate = new Date();
-  //   const localHour = localDate.getHours();
 
+  //   const localHour = localDate.getHours();
   if (localHour >= 6 && localHour <= 18) {
     sunMesh.rotation.x -= 0.002;
     sunMesh.rotation.y -= 0.002;
@@ -188,8 +188,8 @@ function setBackgroundColor() {
     sunMesh2.rotation.z -= 0.002;
   }
 }
-//Renderer
 
+//Renderer
 function renderSun() {
   sunRenderer.render(sunScene, sunCamera);
 }
