@@ -127,14 +127,9 @@ function animateSun() {
   //   const localHour = localDate.getHours();
 
   if (localHour >= 6 && localHour <= 18) {
-    let offR = "-= 0.002";
-    anime({
-      targets: sunMesh.rotation,
-      z:  offR,
-      x: offR,
-      y: offR,
-      easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
-    })
+    sunMesh.rotation.x -= 0.002;
+    sunMesh.rotation.y -= 0.002;
+    sunMesh.rotation.z -= 0.002;
   } else {
     sunMesh2.rotation.x -= 0.001;
     sunMesh2.rotation.y -= 0.001;
@@ -177,22 +172,20 @@ function setBackgroundColor() {
       duration: 10000,
       easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
     });
-    anime(
-      {
-        targets: sunMesh2.position,
-        keyframes: [{ z: -200 }, { z: 0 }],
-        delay: 0,
-        duration: 15000,
-        easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
-      },
-    );
+    anime({
+      targets: sunMesh2.position,
+      keyframes: [{ z: -200 }, { z: 0 }],
+      delay: 0,
+      duration: 15000,
+      easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
+    });
   } else {
-  sunCanvasBg.style.backgroundColor = backgroundCanvas[5];
-  sunMesh2.position.set(0, 0, 0);
-  sunMesh.position.set(0, 0, -200);
-  sunMesh2.rotation.x -= 0.002;
-  sunMesh2.rotation.y -= 0.002;
-  sunMesh2.rotation.z -= 0.002;
+    sunCanvasBg.style.backgroundColor = backgroundCanvas[5];
+    sunMesh2.position.set(0, 0, 0);
+    sunMesh.position.set(0, 0, -200);
+    sunMesh2.rotation.x -= 0.002;
+    sunMesh2.rotation.y -= 0.002;
+    sunMesh2.rotation.z -= 0.002;
   }
 }
 //Renderer
@@ -200,8 +193,6 @@ function setBackgroundColor() {
 function renderSun() {
   sunRenderer.render(sunScene, sunCamera);
 }
-
-
 
 //  call the sun
 startSun();
