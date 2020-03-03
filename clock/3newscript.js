@@ -161,56 +161,76 @@ function timeChange(hourUpdate) {
     easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
   });
 
-  if (hourUpdate >= 6 && hourUpdate <= 10) {
-    if (!sunIsUP) {
-      mesh2.position.set(0, -8, 0);
-      sceneCanvasBg.style.backgroundColor = backgroundCanvas[0];
-      //animating thr sun living
-      tl.add({
-        targets: mesh.position,
-        keyframes: [{ y: 0 }, { y: 9 }]
-      })
-        // animating sun rising
-        .add(
-          {
-            targets: mesh2.position,
-            keyframes: [{ y: -1 }, { y: 0 }]
-          },
-          "-=1"
-        );
-      sunIsUP = true;
-    }
-  } else if (hourUpdate >= 11 && hourUpdate <= 13) {
-    mesh2.position.set(0, 0, 1);
-    sceneCanvasBg.style.backgroundColor = backgroundCanvas[1];
-  } else if (hourUpdate >= 14 && hourUpdate <= 17) {
-    mesh2.position.set(0, 0, 1);
-    sceneCanvasBg.style.backgroundColor = backgroundCanvas[2];
-  } else if (hourUpdate >= 18 && hourUpdate <= 20) {
-    if (sunIsUP) {
-      sceneCanvasBg.style.backgroundColor = backgroundCanvas[3];
-      // animating sunsetting
-      mesh.position.set(0, -8, 0);
-      mesh2.position.set(0, 0, 0);
-      tl.add({
-        targets: mesh2.position,
-        keyframes: [{ y: 0 }, { y: 9 }]
-      }).add(
+  function sunUP() {
+    mesh2.position.set(0, -8, 0);
+    //animating thr sun living
+    tl.add({
+      targets: mesh.position,
+      keyframes: [{ y: 0 }, { y: 9 }]
+    })
+      // animating sun rising
+      .add(
         {
-          targets: mesh.position,
+          targets: mesh2.position,
           keyframes: [{ y: -1 }, { y: 0 }]
         },
         "-=1"
       );
-      sunIsUP = false;
+    sunIsUP = true;
+  }
+
+  function moonUp() {
+    mesh.position.set(0, -8, 0);
+    mesh2.position.set(0, 0, 0);
+    tl.add({
+      targets: mesh2.position,
+      keyframes: [{ y: 0 }, { y: 9 }]
+    }).add(
+      {
+        targets: mesh.position,
+        keyframes: [{ y: -1 }, { y: 0 }]
+      },
+      "-=1"
+    );
+    sunIsUP = false;
+  }
+
+  if (hourUpdate >= 6 && hourUpdate <= 10) {
+    if (!sunIsUP) {
+      sceneCanvasBg.style.backgroundColor = backgroundCanvas[0];
+      sunUP();
     }
+  } else if (hourUpdate >= 11 && hourUpdate <= 13) {
+    if (!sunIsUP) {
+      //mesh2.position.set(0, 0, 1);
+      sunUP();
+      sunIsUP = true;
+    }
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[1];
+  } else if (hourUpdate >= 14 && hourUpdate <= 17) {
+    if (!sunIsUP) {
+      //mesh2.position.set(0, 0, 1);
+      sunUP();
+      sunIsUP = true;
+    }
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[2];
+  } else if (hourUpdate >= 18 && hourUpdate <= 20) {
+    if (sunIsUP) {
+      // animating sunsetting
+      moonUp();
+    }
+    sceneCanvasBg.style.backgroundColor = backgroundCanvas[3];
   } else if (hourUpdate >= 20 && hourUpdate <= 23) {
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[4];
-    mesh.position.set(0, 0, 0);
-    mesh2.position.set(0, -8, 0);
+    if (sunIsUP) {
+      // animating sunsetting
+      moonUp();
+    }
   } else {
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[5];
-    mesh.position.set(0, 0, 0);
-    mesh2.position.set(0, -8, 0);
+    if (sunIsUP) {
+      // animating sunsetting
+      moonUp();
+    }
   }
 }
