@@ -1,5 +1,5 @@
-$primary-color : #000d1a;
-$font : "PT Sans";
+$primary-color: #000d1a;
+$font: "PT Sans";
 
 body {
   margin: 0;
@@ -7,7 +7,7 @@ body {
   font-size: 100%;
   display: flex;
   overflow: hidden;
-  font-family:$font ;
+  font-family: $font;
 }
 
 #scene-container,
@@ -96,7 +96,7 @@ body {
     margin: 0;
     opacity: 100%;
     clip-path: none;
-    border-bottom: 0.5px dashed rgba($color: #ffffff, $alpha: 0.4) ;
+    border-bottom: 0.5px dashed rgba($color: #ffffff, $alpha: 0.4);
 
     #collect-info {
       width: 100vw;
@@ -105,7 +105,6 @@ body {
       justify-content: space-evenly;
       margin: auto;
       margin-top: 20px;
-      
 
       #location {
         color: white;
@@ -115,12 +114,10 @@ body {
         width: 20em;
         border: 0;
         outline: 0;
-        font-family: $font ;
+        font-family: $font;
         font-size: 1em;
         border-bottom: 1px solid white;
-
-       
-       
+        border-radius: 0;
       }
       #submit {
         font-family: inherit;
@@ -132,8 +129,8 @@ body {
         background-color: #000d1a;
         border-radius: 5px;
 
-
-        &:hover, &:focus{
+        &:hover,
+        &:focus {
           background-color: white;
           color: $primary-color;
           transition: 1ss ease-in;
@@ -142,4 +139,3 @@ body {
     }
   }
 }
-

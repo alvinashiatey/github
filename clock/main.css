@@ -135,6 +135,7 @@ body {
     font-family: "PT Sans";
     font-size: 1em;
     border-bottom: 1px solid white;
+    border-radius: 0;
   }
   .slidein #collect-info #submit {
     font-family: inherit;
