@@ -16,11 +16,9 @@ function init() {
     updateSc();
     render();
   });
-};
+}
 
-
-
-// Camera function 
+// Camera function
 function cameraCreated() {
   //camera
   const fov = 55; //field of view
@@ -31,7 +29,6 @@ function cameraCreated() {
   // note every camera starts at (0x, 0y, 0z) set z to position the camera at a spot where the object can be viewed
   camera.position.set(0, 0, 10);
 }
-
 
 //renderer function
 function rendererCreated() {
@@ -48,14 +45,12 @@ function rendererCreated() {
 
   //animation is called here
 
-
   window.addEventListener("resize", () => {
     renderer.setSize(container.clientWidth, container.clientHeight);
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
   });
 }
-
 
 // mesh geometry funtion for moon and sun
 
@@ -75,15 +70,16 @@ function meshCreated() {
   //reducing bluring at glancing angles
   texture.anisotropy = 16;
 
-  const material = new THREE.MeshStandardMaterial({ map: texture, displacementMap: texture, displacementScale: 0.1 });
+  const material = new THREE.MeshStandardMaterial({
+    map: texture,
+    displacementMap: texture,
+    displacementScale: 0.1
+  });
   mesh = new THREE.Mesh(geometry, material);
 
   mesh.position.set(0, 0, 0);
   scene.add(mesh);
-
-  
 }
-
 
 //messh for sun
 function mesh2Created() {
@@ -101,45 +97,41 @@ function mesh2Created() {
   //reducing bluring at glancing angles
   texture2.anisotropy = 16;
 
-  const material2 = new THREE.MeshStandardMaterial({ map: texture2, displacementMap: texture2, displacementScale: 0.1 });
+  const material2 = new THREE.MeshStandardMaterial({
+    map: texture2,
+    displacementMap: texture2,
+    displacementScale: 0.1
+  });
   mesh2 = new THREE.Mesh(geometry2, material2);
 
   mesh2.position.set(0, 0, -10);
 
   scene.add(mesh2);
-
 }
 
 // light function
-function lightCreated(){
-    //creating light
-    var light = new THREE.DirectionalLight(0xffffff, 0.6);
-  
-    //light position
-    light.position.set(10, 10, 10);
-  
-    scene.add(light);
-  };
+function lightCreated() {
+  //creating light
+  var light = new THREE.DirectionalLight(0xffffff, 0.6);
 
+  //light position
+  light.position.set(10, 10, 10);
+
+  scene.add(light);
+}
 
 //update function
 function updateSc() {
-
   //animating the mesh each frame
-   mesh.rotation.z += 0.001;
-   mesh.rotation.y += 0.005;
-   mesh.rotation.x += 0.001;
 
-   mesh2.rotation.z += 0.001;
-   mesh2.rotation.y += 0.005;
-   mesh2.rotation.x += 0.001;
+  mesh.rotation.z += 0.001;
+  mesh.rotation.y += 0.005;
+  mesh.rotation.x += 0.001;
 
-
-
-
-
+  mesh2.rotation.z += 0.001;
+  mesh2.rotation.y += 0.005;
+  mesh2.rotation.x += 0.001;
 }
-
 
 //render called
 function render() {
@@ -150,10 +142,9 @@ function render() {
 // call to set up everythin
 init();
 
+// todo link animation to time
 
-// todo link animation to time 
-
-function timeChange(hourUpdate){
+function timeChange(hourUpdate) {
   let sceneCanvasBg, backgroundCanvas;
   sceneCanvasBg = document.querySelector("#scene-container");
   backgroundCanvas = [
@@ -168,23 +159,24 @@ function timeChange(hourUpdate){
   var tl = anime.timeline({
     duration: 5000,
     easing: "cubicBezier(0.405, 0.005, 0.35, 1)"
-  })
+  });
 
   if (hourUpdate >= 6 && hourUpdate <= 10) {
     mesh2.position.set(0, -8, 0);
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[0];
     //animating thr sun living
-    tl
-    .add({
+    tl.add({
       targets: mesh.position,
-      keyframes: [{ y: 0 }, { y: 9 }],  
-     },)
-    // animating sun rising
-    .add({
-        targets: mesh2.position,
-        keyframes: [{ y: -1 }, { y: 0 }],
-    },'-=1')
-
+      keyframes: [{ y: 0 }, { y: 9 }]
+    })
+      // animating sun rising
+      .add(
+        {
+          targets: mesh2.position,
+          keyframes: [{ y: -1 }, { y: 0 }]
+        },
+        "-=1"
+      );
   } else if (hourUpdate >= 11 && hourUpdate <= 13) {
     mesh2.position.set(0, 0, 1);
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[1];
@@ -196,23 +188,23 @@ function timeChange(hourUpdate){
     // animating sunsetting
     mesh.position.set(0, -8, 0);
     mesh2.position.set(0, 0, 0);
-    tl.add ({
-      targets:mesh2.position,
-      keyframes: [{ y: 0 }, { y: 9 }],
-    })
-    .add({
-      targets: mesh.position,
-        keyframes: [{ y: -1 }, { y: 0 }],
-    },'-=1')
+    tl.add({
+      targets: mesh2.position,
+      keyframes: [{ y: 0 }, { y: 9 }]
+    }).add(
+      {
+        targets: mesh.position,
+        keyframes: [{ y: -1 }, { y: 0 }]
+      },
+      "-=1"
+    );
   } else if (hourUpdate >= 20 && hourUpdate <= 23) {
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[4];
     mesh.position.set(0, 0, 0);
     mesh2.position.set(0, -8, 0);
-  }
-  else {
+  } else {
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[5];
     mesh.position.set(0, 0, 0);
     mesh2.position.set(0, -8, 0);
   }
-
 }
