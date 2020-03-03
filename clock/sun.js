@@ -122,7 +122,7 @@ function animateSun() {
   sunMesh2.rotation.x -= 0.002;
   sunMesh2.rotation.y -= 0.002;
   sunMesh2.rotation.z -= 0.002;
-  
+
   //   const localDate = new Date();
 
   //   const localHour = localDate.getHours();
