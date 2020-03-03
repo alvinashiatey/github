@@ -1,6 +1,6 @@
 //Global variables
-let container, scene, camera, renderer, mesh, mesh2;
-
+let container, scene, camera, renderer, mesh, mesh2, sunIsUP;
+sunIsUP = false;
 //initiaing function
 function init() {
   container = document.querySelector("#scene-container");
@@ -162,21 +162,24 @@ function timeChange(hourUpdate) {
   });
 
   if (hourUpdate >= 6 && hourUpdate <= 10) {
-    mesh2.position.set(0, -8, 0);
-    sceneCanvasBg.style.backgroundColor = backgroundCanvas[0];
-    //animating thr sun living
-    tl.add({
-      targets: mesh.position,
-      keyframes: [{ y: 0 }, { y: 9 }]
-    })
-      // animating sun rising
-      .add(
-        {
-          targets: mesh2.position,
-          keyframes: [{ y: -1 }, { y: 0 }]
-        },
-        "-=1"
-      );
+    if (!sunIsUP) {
+      mesh2.position.set(0, -8, 0);
+      sceneCanvasBg.style.backgroundColor = backgroundCanvas[0];
+      //animating thr sun living
+      tl.add({
+        targets: mesh.position,
+        keyframes: [{ y: 0 }, { y: 9 }]
+      })
+        // animating sun rising
+        .add(
+          {
+            targets: mesh2.position,
+            keyframes: [{ y: -1 }, { y: 0 }]
+          },
+          "-=1"
+        );
+      sunIsUP = true;
+    }
   } else if (hourUpdate >= 11 && hourUpdate <= 13) {
     mesh2.position.set(0, 0, 1);
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[1];
@@ -184,20 +187,23 @@ function timeChange(hourUpdate) {
     mesh2.position.set(0, 0, 1);
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[2];
   } else if (hourUpdate >= 18 && hourUpdate <= 20) {
-    sceneCanvasBg.style.backgroundColor = backgroundCanvas[3];
-    // animating sunsetting
-    mesh.position.set(0, -8, 0);
-    mesh2.position.set(0, 0, 0);
-    tl.add({
-      targets: mesh2.position,
-      keyframes: [{ y: 0 }, { y: 9 }]
-    }).add(
-      {
-        targets: mesh.position,
-        keyframes: [{ y: -1 }, { y: 0 }]
-      },
-      "-=1"
-    );
+    if (sunIsUP) {
+      sceneCanvasBg.style.backgroundColor = backgroundCanvas[3];
+      // animating sunsetting
+      mesh.position.set(0, -8, 0);
+      mesh2.position.set(0, 0, 0);
+      tl.add({
+        targets: mesh2.position,
+        keyframes: [{ y: 0 }, { y: 9 }]
+      }).add(
+        {
+          targets: mesh.position,
+          keyframes: [{ y: -1 }, { y: 0 }]
+        },
+        "-=1"
+      );
+      sunIsUP = false;
+    }
   } else if (hourUpdate >= 20 && hourUpdate <= 23) {
     sceneCanvasBg.style.backgroundColor = backgroundCanvas[4];
     mesh.position.set(0, 0, 0);
