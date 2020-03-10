@@ -5,7 +5,7 @@ var webpack = require("webpack");
 module.exports = {
   entry: "./src/js/geocodeAA.js",
   output: {
-    path: path.resolve(__dirname, "dist/js"),
+    path: path.resolve(__dirname, "dist/"),
     filename: "bundle.js"
   },
   devServer: {

@@ -1,4 +1,5 @@
 const axios = require("axios");
+const THREE = require("three");
 
 let googleAPI;
 googleAPI = "AIzaSyDKdwsFsIw1STe6Xf2zUFH0Sk8n6YQza40";
