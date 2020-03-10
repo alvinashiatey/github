@@ -17,9 +17,9 @@ var geoLocate = (function() {
   }
 
   // fetching data from Api
-  function googleMapRequest(lat, lng) {
+  async function googleMapRequest(lat, lng) {
     var googleAPI = "AIzaSyDKdwsFsIw1STe6Xf2zUFH0Sk8n6YQza40";
-    axios
+    await axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           latlng: `${lat},${lng}`,
@@ -27,8 +27,8 @@ var geoLocate = (function() {
         }
       })
       .then(response => {
-        //console.log(response);
-        let location1 = response.data.results[7].formatted_address;
+        // console.log(response);
+        let location1 = response.data.results[5].formatted_address;
         let pinLocation1 = document.querySelector("#location1");
 
         pinLocation1.textContent += location1.padStart();
@@ -38,8 +38,8 @@ var geoLocate = (function() {
       });
   }
 
-  function darkSky(lat, lng) {
-    axios
+  async function darkSky(lat, lng) {
+    await axios
       .get(
         `https://api.darksky.net/forecast/b20a7ac99ea1d93df5831a1541ba3cb6/${lat},${lng}`
       )
@@ -69,9 +69,9 @@ var UIrequest = (function() {
     getLocation(address);
   }
 
-  function getLocation(address) {
+  async function getLocation(address) {
     // vL = document.querySelector("#location").value;
-    axios
+    await axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: address,
@@ -122,9 +122,8 @@ var UIrequest = (function() {
   });
 })();
 
-
-function timeOffset(timeZne) {
-  axios
+async function timeOffset(timeZne) {
+  await axios
     .get(`http://worldtimeapi.org/api/timezone/${timeZne}`)
     .then(response => {
       const offSet = response.data.utc_offset;
@@ -133,11 +132,9 @@ function timeOffset(timeZne) {
       let nd = new Date(utc + 3600000 * offSet.split(":", 1));
       let dynamicHour = nd.getHours();
 
-      // testing code 
+      // testing code
       timeChange(dynamicHour);
 
       // console.log(nd);
-     
-    
     });
 }
