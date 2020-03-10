@@ -13,7 +13,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "./src/atime.html"
+      template: "./src/index.html"
     })
-  ]
+  ],
+  module: {
+    rules: [{}]
+  }
 };

@@ -1,17 +1,46 @@
-Html Webpack Plugin:
-<pre>
-  ReferenceError: hDate is not defined
-  
-  - loader.js:4 eval
-    [atime.html?.]/[html-webpack-plugin]/lib/loader.js:4:10
-  
-  - loader.js:11 module.exports
-    [atime.html?.]/[html-webpack-plugin]/lib/loader.js:11:3
-  
-  - index.js:284 
-    [clock]/[html-webpack-plugin]/index.js:284:18
-  
-  - task_queues.js:97 processTicksAndRejections
-    internal/process/task_queues.js:97:5
-  
-</pre>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.1.0/anime.min.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div class="slidein">
+      <div id="collect-info">
+        <input
+          type="text"
+          name=""
+          id="location"
+          value=""
+          placeholder="COUNTRY"
+          required
+        />
+        <button type="submit" id="submit">SUBMIT</button>
+      </div>
+    </div>
+
+    <div id="sun-container">
+      <div class="info">
+        <h3 id="location1"></h3>
+        <p id="weather1"></p>
+      </div>
+    </div>
+
+    <div id="scene-container">
+      <div class="info2">
+        <h3 id="location2">Accra</h3>
+        <p id="weather2">weather</p>
+      </div>
+    </div>
+
+    <script src="bundle.js"></script>
+  <script type="text/javascript" src="bundle.js"></script></body>
+</html>
