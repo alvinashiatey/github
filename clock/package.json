@@ -1,0 +1,14 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "A clock piece",
+  "main": "3newscript.js",
+  "scripts": {
+    "dev": "webpack"
+  },
+  "author": "Alvin Ashiatey",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.42.0"
+  }
+}
