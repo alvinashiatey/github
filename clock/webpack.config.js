@@ -2,7 +2,12 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 var path = require("path");
 
 module.exports = {
-  entry: "./src/js/geocodeAA.js",
+  entry: [
+    "babel-polyfill",
+    "./src/js/geocodeAA.js",
+    "./src/js/sun.js",
+    "./src/js/3newscript.js"
+  ],
   output: {
     path: path.resolve(__dirname, "dist/"),
     filename: "bundle.js"
