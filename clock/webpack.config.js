@@ -1,26 +1,20 @@
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/js/script.js",
+  entry: "./src/js/geocodeAA.js",
   output: {
     path: path.resolve(__dirname, "dist/js"),
     filename: "bundle.js"
   },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: "babel-loader",
-        query: {
-          presets: ["es2015"]
-        }
-      }
-    ]
+  devServer: {
+    contentBase: "./dist"
   },
-  stats: {
-    colors: true
-  },
-  devtool: "source-map",
-  mode: 'development';
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "./src/atime.html"
+    })
+  ]
 };

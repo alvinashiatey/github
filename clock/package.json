@@ -4,11 +4,20 @@
   "description": "A clock piece",
   "main": "3newscript.js",
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "author": "Alvin Ashiatey",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.42.0"
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "three": "^0.114.0"
   }
 }
