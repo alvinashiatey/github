@@ -1,5 +1,9 @@
 /// right Panel
 //Global variables
+
+let THREE = require("three");
+import anime from "animejs";
+
 let container, scene, camera, renderer, mesh, mesh2, sunIsUP;
 sunIsUP = false;
 //initiaing function
@@ -35,6 +39,7 @@ function cameraCreated() {
 function rendererCreated() {
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
+  console.log(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 
   //gammaFactor and Output
@@ -144,8 +149,7 @@ function render() {
 init();
 
 // todo link animation to time
-
-function timeChange(hourUpdate) {
+export let timeChange = function(hourUpdate) {
   let sceneCanvasBg, backgroundCanvas;
   sceneCanvasBg = document.querySelector("#scene-container");
   backgroundCanvas = [
@@ -234,4 +238,4 @@ function timeChange(hourUpdate) {
       moonUp();
     }
   }
-}
+};

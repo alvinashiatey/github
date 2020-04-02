@@ -1,5 +1,7 @@
 const axios = require("axios");
-
+import anime from "animejs";
+import * as time from "./3newscript";
+// import "../main.scss";
 // displaying received datat on UI
 
 //geolocating
@@ -11,14 +13,15 @@ var geoLocate = (function() {
       lat: position.coords.latitude,
       long: position.coords.longitude
     };
+    console.log(geoLo.lat, geoLo.long);
     googleMapRequest(geoLo.lat, geoLo.long);
     darkSky(geoLo.lat, geoLo.long);
   }
 
   // fetching data from Api
-  async function googleMapRequest(lat, lng) {
+  function googleMapRequest(lat, lng) {
     var googleAPI = "AIzaSyDKdwsFsIw1STe6Xf2zUFH0Sk8n6YQza40";
-    await axios
+    axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           latlng: `${lat},${lng}`,
@@ -29,7 +32,7 @@ var geoLocate = (function() {
         // console.log(response);
         let location1 = response.data.results[5].formatted_address;
         let pinLocation1 = document.querySelector("#location1");
-
+        console.log(response);
         pinLocation1.textContent += location1.padStart();
       })
       .catch(error => {
@@ -37,8 +40,8 @@ var geoLocate = (function() {
       });
   }
 
-  async function darkSky(lat, lng) {
-    await axios
+  function darkSky(lat, lng) {
+    axios
       .get(
         `https://api.darksky.net/forecast/b20a7ac99ea1d93df5831a1541ba3cb6/${lat},${lng}`
       )
@@ -66,11 +69,12 @@ var UIrequest = (function() {
     const location1 = document.querySelector("#location");
     address = location1.value;
     getLocation(address);
+    pageClose();
   }
 
-  async function getLocation(address) {
+  function getLocation(address) {
     // vL = document.querySelector("#location").value;
-    await axios
+    axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: address,
@@ -112,11 +116,53 @@ var UIrequest = (function() {
       });
   }
 
+  //Element animation for overlay
+
+  function pageanimation() {
+    var tl = anime.timeline({
+      easing: "easeInSine",
+      duration: 4000
+    });
+    tl.add({
+      targets: ".startqoute p, .slidein",
+      opacity: [0, 1],
+      translateY: [30, 0]
+    });
+  }
+
+  // page close animation for overlay
+  pageanimation();
+  function pageClose() {
+    let overlay = document.querySelector(".startqoute");
+    let animateState = true;
+    function animate1() {
+      if (animateState) {
+        anime({
+          targets: overlay,
+          opacity: [1, 0],
+          easing: "easeInSine",
+          animateState: false,
+          duration: 4000
+        });
+        animateState = false;
+      }
+    }
+    animate1();
+
+    setTimeout(() => {
+      if (!animateState) {
+        overlay.style.display = "none";
+        animateState = true;
+      }
+    }, 4200);
+  }
+
   // Button to call functions
   getAddress.addEventListener("click", setLocation);
   document.addEventListener("keypress", e => {
     if (e.keyCode === 13 || e.which === 13) {
       setLocation();
+      pageClose();
     }
   });
 })();
@@ -132,7 +178,7 @@ async function timeOffset(timeZne) {
       let dynamicHour = nd.getHours();
 
       // testing code
-      timeChange(dynamicHour);
+      time.timeChange(dynamicHour);
 
       // console.log(nd);
     });

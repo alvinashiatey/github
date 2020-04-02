@@ -1,5 +1,5 @@
-const THREE = require("three");
-const anime = require("animejs");
+let THREE = require("three");
+import anime from "animejs";
 
 let sunContainer,
   sunScene,
@@ -110,11 +110,6 @@ function sunMeshCreated() {
   sunScene.add(sunMesh);
   sunScene.add(sunMesh2);
 }
-
-//orbital control function
-// function sunControlsCreated() {
-//   sunControls = new THREE.OrbitControls(sunCamera, sunContainer);
-// }
 
 // sun Light Created
 function sunLightCreated() {
