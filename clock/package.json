@@ -33,6 +33,6 @@
     "babel-polyfill": "^6.26.0",
     "dotenv": "^8.2.0",
     "netlify-lambda": "^1.6.3",
-    "three": "^0.114.0"
+    "three": "^0.125.0"
   }
 }
